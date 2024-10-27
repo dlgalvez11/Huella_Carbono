@@ -1,4 +1,4 @@
-setwd("C:/Users/dgalv/OneDrive/Diego/Diego/MHM 2021-2022/SCRIPTS R")
+setwd("Dirección")
 options(scipen=0)
 
 library(dplyr)
@@ -48,7 +48,8 @@ Calefaccion_T0_v2 <- lm(formula = T0_Calefaccion ~ Distancia.Euclidiana + Temper
                           Gas + Gas_Otro + Lena + Lena_Parafina + Otro + Parafina + 
                           Parafina_Electrica + Parafina_Electrica_Otro, data = T0_Calefaccion)
 summary(Calefaccion_T0_v2)
-
+vif_valores <- vif(Calefaccion_T0_v2)
+print(vif_valores)
 
 
 Calefaccion_T1_v2 <- lm(formula = T11_Calefaccion ~ Densidad.barrio + Distancia.Network + 
@@ -58,6 +59,9 @@ Calefaccion_T1_v2 <- lm(formula = T11_Calefaccion ~ Densidad.barrio + Distancia.
                           Lena_Parafina_Electrica_Gas + Lena_Parafina_Gas + Lena_Petroleo + Parafina_Electrica + Petroleo, data = T1_Calefaccion)
 
 summary(Calefaccion_T1_v2)
+vif_valores <- vif(Calefaccion_T1_v2)
+print(vif_valores)
+
 
 
 ###### ENERGIA 
@@ -65,6 +69,8 @@ Energia_T0_v2 <- lm(formula = T0_Electricidad ~ Renta_C3 + Renta_E + Temperatura
                       N.personas.hogar + Act_Calefactores_Si + Madera + Lena_Otro + Petroleo + Electrica +
                       Parafina_Electrica + Carbon_Gas, data = T0_Energia)
 summary(Energia_T0_v2)
+vif_valores <- vif(Energia_T0_v2)
+print(vif_valores)
 
 
 Energia_T1_v2 <- lm(formula = T11_Electricidad ~ Distancia.Network + Distancia.Euclidiana + 
@@ -73,5 +79,7 @@ Energia_T1_v2 <- lm(formula = T11_Electricidad ~ Distancia.Network + Distancia.E
                       Lena_Electrica_Otro + Lena_Gas + Lena_Parafina + Lena_Parafina_Electrica + Parafina_Electrica +
                       Petroleo, data = T1_Energia)
 summary(Energia_T1_v2)
+vif_valores <- vif(Energia_T1_v2)
+print(vif_valores)
 
 
